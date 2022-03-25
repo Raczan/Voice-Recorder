@@ -1,0 +1,78 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+    margin: 0;
+}
+
+.container {
+  position: absolute;
+  top: 40%;
+  margin: 0;
+  transform: translateY(-45%);
+  width: 100%;
+  height: auto;
+	margin: 20px auto;
+	display: grid;
+	grid-gap: 80px;
+	grid-template-columns: repeat(1);
+	grid-template-rows: repeat(4, auto);
+	grid-template-areas:  "time"
+						            "wave"
+						            "record-play-container"
+                        "footer";
+}
+h1{
+  margin: 0;
+  cursor:none;
+}
+
+.time{
+  grid-area: time;
+  display: flex;
+  justify-content: center;
+}
+
+.wave{
+  grid-area: wave;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.record-play-container{
+  grid-area: record-play-container;
+  display: flex;
+  column-gap: 40px;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer{
+  caret-color: transparent;
+  margin-top: 10px;
+  grid-area: footer;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  column-gap: 2em;
+}
+
+.disable_click{
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+i { 
+  cursor: pointer; 
+  font-size: 2em;
+  transition: 0.5s;
+}
+
+i:active{
+  transform: translateY(5px);
+}
+
+.controlPlay{
+  transform: translateY(5px);
+}

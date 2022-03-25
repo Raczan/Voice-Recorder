@@ -1,0 +1,123 @@
+.record{
+    caret-color: transparent;
+}
+input {
+    display: none;
+}
+.background {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+}
+.background .signature {
+    position: absolute;
+    bottom: -25px;
+    font-style: italic;
+    font-size: 12px;
+    text-transform: none;
+}
+.background .circle {
+    fill: none;
+    stroke-width: 3;
+    stroke-opacity: 0.5;
+}
+.background .loader {
+    fill: none;
+    stroke: #0070FB;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 0;
+    transform-origin: center;
+}
+.background .microphone {
+    position: absolute;
+    fill: #0070FB;
+    height: 40px;
+    width: auto;
+}
+.background .dotWrapper {
+    opacity: 0;
+    position: absolute;
+    width: 40px;
+    height: 10px;
+}
+.background .dotWrapper .dot {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #0070FB;
+    height: 8px;
+    width: 8px;
+}
+.background .dotWrapper .dot-1 {
+    right: 0;
+}
+.background .dotWrapper .dot-3 {
+    right: 15px;
+}
+input:checked ~ .background .loader {
+    animation: line 5s linear infinite, spin 10s linear infinite;
+    stroke-dasharray: 280;
+}
+input:checked ~ .background .microphone {
+    animation: microphone 0.5s ease-in-out both;
+}
+input:checked ~ .background .dotWrapper {
+    opacity: 1;
+    animation: dots 1s ease-in-out both;
+}
+input:checked ~ .background .dotWrapper .dot-1, input:checked ~ .background .dotWrapper .dot-2, input:checked ~ .background .dotWrapper .dot-3 {
+    animation: dot 1s ease-in-out infinite;
+}
+input:checked ~ .background .dotWrapper .dot-2 {
+    animation-delay: -0.4s;
+}
+input:checked ~ .background .dotWrapper .dot-3 {
+    animation-delay: -0.2s;
+}
+@keyframes line {
+    0% {
+        stroke-dashoffset: 1120;
+   }
+    100% {
+        stroke-dashoffset: 560;
+   }
+}
+@keyframes spin {
+    0% {
+        transform: rotate(-90deg) translate3d(0, 0, 0);
+   }
+    100% {
+        transform: rotate(270deg) translate3d(0, 0, 0);
+   }
+}
+@keyframes microphone {
+    0% {
+        transform: scale(1);
+   }
+    10% {
+        transform: scale(1.2);
+   }
+    100% {
+        transform: scale(0);
+   }
+}
+@keyframes dots {
+    0%, 50% {
+        transform: scale(0);
+   }
+    100% {
+        transform: scale(1);
+   }
+}
+@keyframes dot {
+    0%, 100% {
+        top: 5px;
+   }
+    50% {
+        top: -5px;
+   }
+}
