@@ -1,0 +1,75 @@
+{
+  "name": "voice-recorder",
+  "productName": "Shadowing Voice Recorder",
+  "version": "1.0.0",
+  "description": "Program where you can record your voice and play it, excellent for shadowing",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\"",
+    "build-installer": "electron-builder"
+  },
+  "build": {
+    "appId": "Shadowing recorder",
+    "win": {
+      "target": ["nsis"], 
+      "icon": "src/voice-recorder.ico"
+    },
+    "nsis": {
+      "installerIcon": "src/voice-recorder.ico",
+      "uninstallerIcon": "src/voice-recorder.ico",
+      "uninstallDisplayName": "Shadowing Voice Recorder",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    } 
+  },
+  "keywords": [],
+  "author": {
+    "name": "Raczan",
+    "email": "51896000+Raczan@users.noreply.github.com"
+  },
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "voice_recorder"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "devDependencies": {
+    "@electron-builder": "^22.14.13",
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
+    "electron": "17.1.2"
+  }
+}
